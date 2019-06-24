@@ -16,7 +16,7 @@ Pour répondre a la demande nous avons mis en place une infrastructure avec deux
 ## VPN
 Nous avons d'abord installé pipvpn sur une Raspberry, puis, sur une suggestion de Léo, nous nous sommes tournés vers Wireguard. Nouveau VPN ***encore en développement***, Wireguard offre une connexion plus rapide, avec moins de latence.
 ### Installation côté serveur
-[https://www.ckn.io/blog/2017/11/14/wireguard-vpn-typical-setup/](Selon ce guide)
+[Selon ce guide](https://www.ckn.io/blog/2017/11/14/wireguard-vpn-typical-setup/)
 
 Après avoir ajouté le repository pour pouvoir installer Wireguard, et après l'avoir installé, il faut ouvrir les ports pour accepter les connexions sur le port choisi (pour nous 1424). On active aussi le forwarding (redirection) vers l'interface réseau que l'on souhaite. Dans notre cas, on redirige vers l'interface qui correspond au LAN1, pour permettre aux employés d'accéder au LAN1 à travers le VPN. On crée ensuite le fichier de configuration du serveur dans `/etc/wireguard/wg0-server.conf` :
 

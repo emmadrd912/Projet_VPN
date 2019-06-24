@@ -35,6 +35,6 @@ Il est ensuite possible d'ajouter un client avec les commandes suivantes :
 wg genkey | tee client_private_key | wg pubkey > client_public_key
 sudo wg set wg0-server peer $(cat client_public_key) allowed-ips <new_client_vpn_IP>/32
 ```
-Cependant, il faut aussi générer un fichier de configuration correspondant pour le client, ce pourquoi nous avons réalisé un [script](/wireguard/addclient.sh).
+Cependant, il faut aussi générer un fichier de configuration correspondant pour le client, ce pourquoi nous avons réalisé un [script pour ajouter un client](/wireguard/addclient.sh). De même, il existe un [script pour supprimer un client](/wireguard/removeclient.sh).
 ### Installation côté client
 De même, après avoir ajouté le repository pour pouvoir installer Wireguard, et après l'avoir installé, il suffit de rajouter le fichier de configuration généré par le serveur dans `/etc/wireguard/wg0-client.conf`, puis d'exécuter la commande `sudo wg-quick up wg0-client`.

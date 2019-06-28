@@ -35,8 +35,42 @@ A la fin de l'installation choisissez No
 
 ![picture](/image/pfsense-10.jpg)
 
-Puis Reboot
+Puis Reboot et vous pourrez configurer le Pfsens comme vous voudrez
 
+### Installation de serveur web.
+Sous un système Ubuntu server vous aurez besoins d'installer apache2 et nfs
+```
+sudo apt install apache2 nfs-common -y
+```
+Puis vous devrez editer le fichier /etc/fstab et y ajouter cette ligne a la fin du fichier
+```
+192.168.4.50:/mnt/share /var/www/html nfs auto,noatime 0 0
+```
+### Installation serveur NFS pour les serveur web
+Sous un système Ubuntu server vous aurez besoins d'installer nfs-kernel-server
+```
+sudo apt install nfs-kernel-server -y
+```
+Puis vous devrez editer le fichier /etc/exports et y ajouter cette ligne a la fin du fichier
+```
+/mnt/share 192.168.4.1/24(rw,no-root-squash,sync,no_subtree_check)
+```
+puis mettre les fichier a partager dans le dossier /mnt/share
+### Installation serveur NFS pour les employés
+Sous un système Ubuntu server vous aurez besoins d'installer nfs-kernel-server
+```
+sudo apt install nfs-kernel-server -y
+```
+Puis vous devrez editer le fichier /etc/exports et y ajouter cette ligne a la fin du fichier
+```
+/mnt/sharedfolder 192.168.3.1/24(rw,no-root-squash,sync,no_subtree_check)
+```
+puis mettre les fichier a partager dans le dossier /mnt/sharedfolder/
+
+Les employé devront editer leurs fichier /etc/fstab et y ajouter cette ligne a la fin du fichier
+```
+192.168.3.10:/mnt/sharedfolder /mnt/share nfs auto,noatime 0 0
+```
 ## VPN
 Nous avons d'abord installé pipvpn sur une Raspberry, puis, sur une suggestion de Léo, nous nous sommes tournés vers Wireguard. Nouveau VPN ***encore en développement***, Wireguard offre une connexion plus rapide, avec moins de latence.
 ### Installation côté serveur

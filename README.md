@@ -1,8 +1,6 @@
 # Projet infra
-## Mise en situation
-Une entreprise veut mettre en place une infrastructure pouvant comporter une centaine de poste employé, qu'il puisse stocker leurs fichiers sur un serveur commun mais aussi y acceder depuis leurs domicile. L'entreprise veut aussi heberger leurs site web chez eux et qu'il sois peu sensible a la panne.
 ## Routeur
-Pour répondre a la demande nous avons mis en place une infrastructure avec deux LAN. le LAN1 (192.168.3.1/24) comportant le réseau interne de l'entreprise, un vpn pour permettre au employé d'acceder au serveur de fichier commun et un serveur de fichier interne a l'entreprise puis un portail captif pour permettre que seul les utilisateurs authentifié puisse aller sur l'internet. Le LAN2 (192.168.4.1/24) Comportant le site web de l'entreprise. Pour le router nous avons choisi PfSense sur lequel il y a HAproxy pour permettre de faire du load balancing sur les serveurs web de l'entreprise et un un reverse proxy.
+Pour répondre a la demande nous avons mis en place une infrastructure avec deux LAN. le LAN1 (192.168.3.1/24) comportant le réseau interne de l'entreprise, un vpn et un serveur de fichier interne a l'entreprise puis un portail captif pour permettre que seul les utilisateurs authentifié puisse aller sur l'internet. Le LAN2 (192.168.4.1/24) Comportant le site web de l'entreprise. Pour le router nous avons choisi PfSense sur lequel il y a HAproxy pour permettre de faire du load balancing sur les serveurs web de l'entreprise et un un reverse proxy.
 ## Schéma d'infra
 ![picture](/image/projet_infra.png)
 ## Plan d'addressage
@@ -98,3 +96,13 @@ sudo wg set wg0-server peer $(cat client_public_key) allowed-ips <new_client_vpn
 Cependant, il faut aussi générer un fichier de configuration correspondant pour le client, ce pourquoi nous avons réalisé un [script pour ajouter un client](/wireguard/addclient.sh). De même, il existe un [script pour supprimer un client](/wireguard/removeclient.sh).
 ### Installation côté client
 De même, après avoir ajouté le repository pour pouvoir installer Wireguard, et après l'avoir installé, il suffit de rajouter le fichier de configuration généré par le serveur dans `/etc/wireguard/wg0-client.conf`, puis d'exécuter la commande `sudo wg-quick up wg0-client`.
+
+
+### Documentation client
+Après avoir récupéré le fichier de configuration préalablement donné par l'administrateur, exécutez le script installationwireguard.sh fourni avec la commande suivante : `sudo bash installwireguard.sh pathtoconffile`
+
+### Documentation administrateur
+#### Ajouter un client
+Exécuter le script dans /etc/wireguard/addclient.sh en sudo et récupérer ainsi le fichier créé pour le donner au client.
+#### Supprimer un client
+Exécuter le script dans /etc/wireguard/removeclient.sh en sudo avec comme argument la clé publique du client (disponible en exécutant la commande `sudo wg show`) 

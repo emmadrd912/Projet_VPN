@@ -26,12 +26,15 @@ Quand vous tomberez sur cette page choisissez "Install"
 Choisissez votre langue puis confirmer
 
 ![picture](/image/pfsense-7.jpg)
+
 Après vous aurez different choix disponible mais dans notre cas choisissez Auto
 
 ![picture](/image/pfsense-9.jpg)
+
 A la fin de l'installation choisissez No
 
 ![picture](/image/pfsense-10.jpg)
+
 Puis Reboot
 
 ## VPN

@@ -12,6 +12,21 @@ Pour répondre a la demande nous avons mis en place une infrastructure avec deux
 |Web01		| X |192.168.4.10  |
 |Web02		| X |192.168.4.11  |
 |NFS web		| X |192.168.4.50  |
+## Mise en place
+### Installation de PFSense
+Telecharger l'image ISO de pfsense ( https://www.pfsense.org/download/ ) puis graver la sur une clé usb ( https://www.balena.io/etcher/ )
+Quand ce sera fini brancher la clé usb a la machine qui servira de router et demarré sur celle ci.
+![picture](https://www.pc2s.fr/wp-content/uploads/2018/10/pfsense-4.jpg)
+Quand vous tomberez sur cette page choisissez "Install"
+![picture](https://www.pc2s.fr/wp-content/uploads/2018/10/pfsense-5.jpg)
+![picture](https://www.pc2s.fr/wp-content/uploads/2018/10/pfsense-6.jpg)
+Choisissez votre langue puis confirmer
+![picture](https://www.pc2s.fr/wp-content/uploads/2018/10/pfsense-7.jpg)
+Après vous aurez different choix disponible mais dans notre cas choisissez Auto
+![picture](https://www.pc2s.fr/wp-content/uploads/2018/10/pfsense-9.jpg)
+A la fin de l'installation choisissez No
+![picture](https://www.pc2s.fr/wp-content/uploads/2018/10/pfsense-10.jpg)
+Puis Reboot
 
 ## VPN
 Nous avons d'abord installé pipvpn sur une Raspberry, puis, sur une suggestion de Léo, nous nous sommes tournés vers Wireguard. Nouveau VPN ***encore en développement***, Wireguard offre une connexion plus rapide, avec moins de latence.

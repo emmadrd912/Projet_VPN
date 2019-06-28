@@ -16,15 +16,21 @@ Pour répondre a la demande nous avons mis en place une infrastructure avec deux
 ### Installation de PFSense
 Telecharger l'image ISO de pfsense ( https://www.pfsense.org/download/ ) puis graver la sur une clé usb ( https://www.balena.io/etcher/ )
 Quand ce sera fini brancher la clé usb a la machine qui servira de router et demarré sur celle ci.
+
 ![picture](/image/pfsense-4.jpg)
 Quand vous tomberez sur cette page choisissez "Install"
+
 ![picture](/image/pfsense-5.jpg)
 ![picture](/image/pfsense-6.jpg)
+
 Choisissez votre langue puis confirmer
+
 ![picture](/image/pfsense-7.jpg)
 Après vous aurez different choix disponible mais dans notre cas choisissez Auto
+
 ![picture](/image/pfsense-9.jpg)
 A la fin de l'installation choisissez No
+
 ![picture](/image/pfsense-10.jpg)
 Puis Reboot
 
